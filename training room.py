@@ -1,24 +1,13 @@
 import serial
 import time
-from ahk import AHK
 import pyautogui
-# ahk = AHK()
-
-# ahk.key_wait('/')
-
-
-
-
 
 ser = serial.Serial('COM6', 9600)
 time.sleep(1)
 
-
-
 yes = pyautogui.locateOnScreen('special.png', confidence = 0.7)
 yes_center = pyautogui.center(yes)
 print(yes_center)
-
 
 xReading = str(yes_center[0]-5)
 yReading = str(yes_center[1])
@@ -26,7 +15,6 @@ xReading_byte = str.encode('m'+xReading)
 yReading_byte = str.encode('n'+yReading)
 # print((xReading_byte))
 # print(type(xReading))
-
 
 ser.write(b'o')
 time.sleep(1)
@@ -96,8 +84,6 @@ ser.write(ygrown_byte)
 time.sleep(.2)
 ser.write(b'c')
 time.sleep(3)
-
-
 
 #toi
 toi = pyautogui.locateOnScreen('toi.png', confidence = 0.8)
@@ -246,46 +232,3 @@ time.sleep(12)
 # нажать z
 ser.write(b'z')
 time.sleep(1)
-
-
-
-
-
-
-
-
-
-
-    #   //ДВИЖЕНИЕ ПО У
-    #   case 'n': y_coord = val; 
-    #   for (int a = 1; a < 0.79*y_coord; a++)
-    #   {
-    #   Mouse.move(0, 2);
-    #   }
-    #   delay(500);
-    #   break;
-      
-    #   //ДВИЖЕНИЕ ПО Х
-    #   case 'm': x_coord = val; 
-    #   for (int a = 1; a < 0.79*x_coord; a++)
-    #   {
-    #   Mouse.move(2, 0);
-    #   }
-    #   delay(500);
-    #   break;
-
-    #   case 'o': 
-    #   for (int i = 0; i < 10; i++)
-    #   {
-    #   Mouse.move(nul, nul);
-    #   // Serial.println(y_coord); 
-    #   }
-    #   delay(500);
-      
-    #   break;
-      
-    #   case 'c': Mouse.click();
-    #   // Serial.println(y_coord); 
-    #   delay(500);
-    #   break;
-    # }
